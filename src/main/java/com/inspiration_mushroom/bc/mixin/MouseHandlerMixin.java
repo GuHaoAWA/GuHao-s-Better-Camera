@@ -95,7 +95,9 @@ public abstract class MouseHandlerMixin {
 
         double fastResponseTime = BetterCameraConfig.FAST_RESPONSE_TIME.get();
         double bodyResponseTime = BetterCameraConfig.BODY_RESPONSE_TIME.get();
+        double chaseResponseTime = BetterCameraConfig.CHASE_RESPONSE_TIME.get();
         double fastResponseWeight = BetterCameraConfig.FAST_RESPONSE_WEIGHT.get();
+        double chaseResponseWeight = BetterCameraConfig.CHASE_RESPONSE_WEIGHT.get();
         double verticalMultiplier = BetterCameraConfig.VERTICAL_RESPONSE_MULTIPLIER.get();
 
         double horizontalOutput = this.betterCamera$horizontalSmoother.update(
@@ -103,14 +105,18 @@ public abstract class MouseHandlerMixin {
                 deltaSeconds,
                 fastResponseTime,
                 bodyResponseTime,
-                fastResponseWeight
+                chaseResponseTime,
+                fastResponseWeight,
+                chaseResponseWeight
         );
         double verticalOutput = this.betterCamera$verticalSmoother.update(
                 verticalInput,
                 deltaSeconds,
                 fastResponseTime * verticalMultiplier,
                 bodyResponseTime * verticalMultiplier,
-                fastResponseWeight
+                chaseResponseTime * verticalMultiplier,
+                fastResponseWeight,
+                chaseResponseWeight
         );
 
         this.accumulatedDX = horizontalOutput;

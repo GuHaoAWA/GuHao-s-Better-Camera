@@ -3,13 +3,16 @@ package com.inspiration_mushroom.bc.client;
 public final class CameraAxisSmoother {
     private final VelocityChannel fastChannel = new VelocityChannel();
     private final VelocityChannel bodyChannel = new VelocityChannel();
+    private final VelocityChannel chaseChannel = new VelocityChannel();
 
     public double update(
             double inputDelta,
             double deltaSeconds,
             double fastResponseTime,
             double bodyResponseTime,
-            double fastResponseWeight
+            double chaseResponseTime,
+            double fastResponseWeight,
+            double chaseResponseWeight
     ) {
         if (!Double.isFinite(inputDelta) || !Double.isFinite(deltaSeconds) || deltaSeconds <= 0.0D) {
             this.reset();
@@ -17,15 +20,19 @@ public final class CameraAxisSmoother {
         }
 
         double targetVelocity = inputDelta / deltaSeconds;
-        double weight = clamp(fastResponseWeight, 0.0D, 1.0D);
+        double fastWeight = clamp(fastResponseWeight, 0.0D, 1.0D);
+        double chaseWeight = clamp(chaseResponseWeight, 0.0D, 1.0D);
         double fastDelta = this.fastChannel.update(targetVelocity, deltaSeconds, fastResponseTime);
         double bodyDelta = this.bodyChannel.update(targetVelocity, deltaSeconds, bodyResponseTime);
-        return fastDelta * weight + bodyDelta * (1.0D - weight);
+        double chaseDelta = this.chaseChannel.update(targetVelocity, deltaSeconds, chaseResponseTime);
+        double cinematicDelta = bodyDelta * (1.0D - chaseWeight) + chaseDelta * chaseWeight;
+        return fastDelta * fastWeight + cinematicDelta * (1.0D - fastWeight);
     }
 
     public void reset() {
         this.fastChannel.reset();
         this.bodyChannel.reset();
+        this.chaseChannel.reset();
     }
 
     private static double clamp(double value, double minimum, double maximum) {

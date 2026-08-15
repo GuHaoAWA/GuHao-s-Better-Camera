@@ -4,6 +4,7 @@
   "package": "com.inspiration_mushroom.bc.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "CameraMixin",
     "MouseHandlerMixin"
   ],
   "injectors": {
