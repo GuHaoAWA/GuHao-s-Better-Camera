@@ -1,4 +1,4 @@
-package com.guhao.bc.config;
+package com.inspiration_mushroom.bc.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 

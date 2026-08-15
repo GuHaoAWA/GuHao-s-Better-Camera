@@ -1,4 +1,4 @@
-package com.guhao.bc.client;
+package com.inspiration_mushroom.bc.client;
 
 public final class CameraAxisSmoother {
     private final VelocityChannel fastChannel = new VelocityChannel();

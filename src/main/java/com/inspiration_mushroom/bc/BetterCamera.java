@@ -1,6 +1,6 @@
-package com.guhao.bc;
+package com.inspiration_mushroom.bc;
 
-import com.guhao.bc.config.BetterCameraConfig;
+import com.inspiration_mushroom.bc.config.BetterCameraConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

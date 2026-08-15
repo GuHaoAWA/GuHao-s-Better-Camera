@@ -1,8 +1,8 @@
-package com.guhao.bc.mixin;
+package com.inspiration_mushroom.bc.mixin;
 
-import com.guhao.bc.api.client.CameraCompatibility;
-import com.guhao.bc.client.CameraAxisSmoother;
-import com.guhao.bc.config.BetterCameraConfig;
+import com.inspiration_mushroom.bc.api.client.CameraCompatibility;
+import com.inspiration_mushroom.bc.client.CameraAxisSmoother;
+import com.inspiration_mushroom.bc.config.BetterCameraConfig;
 import com.mojang.blaze3d.Blaze3D;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;

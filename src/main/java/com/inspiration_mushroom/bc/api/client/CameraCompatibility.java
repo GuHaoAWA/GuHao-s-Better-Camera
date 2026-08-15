@@ -1,6 +1,6 @@
-package com.guhao.bc.api.client;
+package com.inspiration_mushroom.bc.api.client;
 
-import com.guhao.bc.BetterCamera;
+import com.inspiration_mushroom.bc.BetterCamera;
 
 import java.util.Arrays;
 import java.util.Objects;
