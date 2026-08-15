@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.guhao.bc.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "MouseHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "better_camera.mixin-refmap.json"
+}
