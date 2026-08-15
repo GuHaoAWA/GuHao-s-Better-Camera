@@ -51,7 +51,7 @@ public abstract class MouseHandlerMixin {
 
     @Inject(method = "turnPlayer", at = @At("HEAD"))
     private void betterCamera$smoothMouseInput(CallbackInfo callbackInfo) {
-        if (!this.betterCamera$shouldApply() || CameraCompatibility.isSmoothingBypassed()) {
+        if (!this.betterCamera$shouldApply() || CameraCompatibility.isRotationSmoothingBypassed()) {
             this.betterCamera$reset();
             return;
         }
