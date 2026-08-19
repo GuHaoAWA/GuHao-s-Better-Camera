@@ -8,6 +8,7 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.HitResult;
@@ -147,11 +148,17 @@ public final class CameraPositionController {
                 && minecraft.player != null
                 && entity == minecraft.player
                 && minecraft.getCameraEntity() == minecraft.player
+                && !isFlying(entity)
                 && !minecraft.isPaused()
                 && minecraft.screen == null
                 && !minecraft.options.smoothCamera
                 && minecraft.isWindowActive()
                 && !CameraCompatibility.isPositionSmoothingBypassed();
+    }
+
+    private static boolean isFlying(Entity entity) {
+        return entity instanceof Player player
+                && (player.isFallFlying() || player.getAbilities().flying);
     }
 
     private Vec3 getFocusPosition(Camera camera, Entity entity, float partialTick) {

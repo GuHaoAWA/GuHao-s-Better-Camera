@@ -17,6 +17,8 @@ Default behavior
 - Enabled in third person.
 - Disabled in first person to avoid visual aiming lag.
 - Automatically yields to Minecraft's F8 cinematic camera while that mode is on.
+- Position following yields during creative/spectator flight and elytra flight to
+  keep the rendered player locked to Minecraft's high-speed movement interpolation.
 - Yields while another screen or a non-player camera entity owns mouse input.
 - Resets cleanly after pausing, changing perspective, changing worlds, or changing
   the camera entity.

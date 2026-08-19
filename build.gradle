@@ -92,7 +92,7 @@ dependencies {
     implementation fg.deobf("curse.maven:oculus-581495:5299671")
     implementation fg.deobf("curse.maven:radium-reforged-570017:5706069")
 
-    implementation fg.deobf("curse.maven:epic-fight-mod-405076:8049910")
+//    implementation fg.deobf("curse.maven:epic-fight-mod-405076:8049910")
 
 
 //    compileOnly(annotationProcessor("com.bawnorton.mixinsquared:mixinsquared-common:0.2.0-beta.6"))
